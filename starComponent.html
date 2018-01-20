@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cccc</title>
+
+    <link href="tab.css" />
+
+    <style>
+        .star-item{
+            display: inline-block;
+            background-repeat:no-repeat;
+            width:20px;
+            height:20px;
+            margin-right:22px;
+            -webkit-background-size: 100%;
+            background-size: 100%;
+
+        }
+        .star-item-on{
+            background: url("./images/star-off.png") 0 0 no-repeat;
+        }
+        .star-item-half{
+            background: url("./images/star-half.png")  0 0 no-repeat;
+        }
+        .star-item-off{
+            background: url("images/star-on.png")  0 0 no-repeat;
+        }
+    </style>
+
+    <script src="./js/vue.js" ></script>
+
+    <script type="text/x-template" id="stars-template">
+        <div class="star-component">
+            <span v-for="(item,index) in scoreLevel"
+                :key="index"
+                :class="[item=='on'?'star-item-on':item=='half'?'star-item-half':'star-item-off']"
+                @click="chooseStar(index)"
+                  class="star-item"
+            ></span>
+
+        </div>
+    </script>
+
+    <script>
+        Vue.component('stars-vue', {
+            template: '#stars-template',
+
+            props: {
+                score:{
+                    type: Number,
+                    default:3
+                },
+                canChoose:{
+                    type:Boolean,
+                    default:false
+                },
+                max:{
+                    type:Number,
+                    default:5
+                }
+            },
+
+            data:  function () {
+                return {
+                    hasChoosed:false,
+                    selfScore:this.score
+
+                }
+            },
+            computed: {
+                scoreLevel:function(){
+                    //处理最大值情况
+                    var max = this.max;
+                    var score =this.selfScore>max?max:this.selfScore;
+
+                    var result = [];
+                    score = Math.floor(score*10/max)/2;
+                    var hasDecimal = score%1!==0;
+                    var integer = Math.floor(score);
+                    for(var i=0;i<integer;i++){
+                        result.push("on");
+                    }
+                    if(hasDecimal){
+                        result.push("half")
+                    }
+                    while(result.length<5){
+                        result.push("off")
+                    }
+                    return result;
+                }
+            },
+            watch: {
+            },
+            methods: {
+                chooseStar:function(index){
+                    if(this.canChoose&&!this.hasChoosed){
+                        this.selfScore=(this.max*(index+1)/5);
+                        this.hasChoosed=true;
+                    }
+                }
+            }
+        });
+    </script>
+
+</head>
+<body>
+<div class="wrapper" id="wrapper">
+    <div v-for="(item,index) in list">
+        <stars-vue
+                :score.sync="item.score"
+                :can-Choose.sync="item.canChoose"
+                :max.sync="item.max"
+        ></stars-vue>
+    </div>
+
+</div>
+</body>
+<script>
+    var list = new Vue({
+        el: '#wrapper',
+        data: {
+            list:[
+                {
+                    score:40,
+                    canChoose:true,
+                    max:100
+                },
+                {
+                    score:40,
+                    canChoose:true,
+                    max:100
+                },
+                {
+                    score:40,
+                    canChoose:true,
+                    max:100
+                },
+                {
+                    score:40,
+                    canChoose:true,
+                    max:100
+                },
+                {
+                    score:40,
+                    canChoose:true,
+                    max:100
+                },
+                {
+                    score:40,
+                    canChoose:true,
+                    max:100
+                },
+                {
+                    score:1.2,
+                    canChoose:false
+                }
+            ]
+        },
+        methods:{
+        },
+        watch:{
+        }
+    });
+
+</script>
+</html>
