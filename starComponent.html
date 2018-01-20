@@ -93,10 +93,11 @@
             watch: {
             },
             methods: {
-                chooseStar:function(index){
+                chooseStar:function(index,$event){
                     if(this.canChoose&&!this.hasChoosed){
                         this.selfScore=(this.max*(index+1)/5);
                         this.hasChoosed=true;
+                        this.$emit('change', index);
                     }
                 }
             }
@@ -111,6 +112,7 @@
                 :score.sync="item.score"
                 :can-Choose.sync="item.canChoose"
                 :max.sync="item.max"
+                v-on:change="afterClick"
         ></stars-vue>
     </div>
 
@@ -158,6 +160,9 @@
             ]
         },
         methods:{
+            afterClick:function(index){
+                alert(index+1)
+            }
         },
         watch:{
         }
