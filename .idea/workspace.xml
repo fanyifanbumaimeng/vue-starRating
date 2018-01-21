@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b4d32b5b-74e9-47a2-800c-230f83cb5ac4" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/statRating/starRating.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/starComponent.html" afterPath="$PROJECT_DIR$/starRating.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/statRating/starRating.vue" afterPath="$PROJECT_DIR$/statRating/starRating.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,8 +19,8 @@
       <file leaf-file-name="starRating.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/starRating.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2786">
-              <caret line="149" column="10" lean-forward="true" selection-start-line="141" selection-start-column="4" selection-end-line="149" selection-end-column="10" />
+            <state relative-caret-position="-3783">
+              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
                 <element signature="e#4466#4586#0" expanded="false" />
                 <element signature="e#4604#4725#0" expanded="false" />
@@ -31,17 +29,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="starRating.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="starRating.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/statRating/starRating.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="7" column="13" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="7" selection-end-column="13" />
+            <state relative-caret-position="363">
+              <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="738">
@@ -74,6 +72,7 @@
         <option value="$PROJECT_DIR$/starLevel/starRating.vue" />
         <option value="$PROJECT_DIR$/starLevel/index.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/statRating/starRating.vue" />
       </list>
     </option>
   </component>
@@ -165,12 +164,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1516419413458</updated>
-      <workItem from="1516419414707" duration="16135000" />
+      <workItem from="1516419414707" duration="16433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16135000" />
+    <option name="totallyTimeSpent" value="16433000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -213,18 +212,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/statRating/starRating.vue">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" column="13" lean-forward="true" selection-start-line="2" selection-start-column="12" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="738">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/starRating.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2786">
-          <caret line="149" column="10" lean-forward="true" selection-start-line="141" selection-start-column="4" selection-end-line="149" selection-end-column="10" />
+        <state relative-caret-position="-3783">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
             <element signature="e#4466#4586#0" expanded="false" />
             <element signature="e#4604#4725#0" expanded="false" />
@@ -232,10 +231,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/statRating/starRating.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="363">
+          <caret line="107" column="6" lean-forward="false" selection-start-line="107" selection-start-column="6" selection-end-line="107" selection-end-column="6" />
           <folding />
         </state>
       </provider>

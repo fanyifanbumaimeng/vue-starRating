@@ -105,7 +105,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style scoped>
     .star-item{
         display: inline-block;
         background-repeat:no-repeat;
