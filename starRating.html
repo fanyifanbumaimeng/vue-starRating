@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>cccc</title>
-
-    <link href="tab.css" />
+    <title>starRating</title>
 
     <style>
         .star-item{
@@ -43,29 +41,42 @@
     </script>
 
     <script>
-        Vue.component('stars-vue', {
+        Vue.component('starRating', {
             template: '#stars-template',
 
             props: {
+                //单个评分
                 score:{
                     type: Number,
                     default:3
                 },
+                //是否是选择模式
                 canChoose:{
                     type:Boolean,
                     default:false
                 },
+                //总数
                 max:{
                     type:Number,
                     default:5
+                },
+                //四舍五入模式，默认不四舍五入。
+                //默认模式 normal
+                //四舍五入模式 round
+                //向上取整 roundUp
+                //向下取整 roundDown
+                mode:{
+                    type:String,
+                    default:"normal"
                 }
             },
 
             data:  function () {
                 return {
+                    //是否已经选择
                     hasChoosed:false,
+                    //传入组件的单个评分的映射
                     selfScore:this.score
-
                 }
             },
             computed: {
@@ -73,17 +84,37 @@
                     //处理最大值情况
                     var max = this.max;
                     var score =this.selfScore>max?max:this.selfScore;
+                    var mode = this.mode;
 
+                    //每颗星星对应的状态
                     var result = [];
-                    score = Math.floor(score*10/max)/2;
-                    var hasDecimal = score%1!==0;
+                    score = (score*10/max)/2;
+                    //向上取整
+                    if(mode==="roundUp"){
+                        score=Math.ceil(score)
+                    }
+                    //向下取整
+                    if(mode==="roundDown"){
+                        score=Math.floor(score)
+                    }
+                    //四舍五入
+                    if(mode==="round"){
+                        score = score.toFixed(0)
+                    }
+
+                    //取整
                     var integer = Math.floor(score);
+                    //是否有小数
+                    hasDecimal = score%1!==0;
+                    //满星
                     for(var i=0;i<integer;i++){
                         result.push("on");
                     }
+                    //半星
                     if(hasDecimal){
                         result.push("half")
                     }
+                    //无星
                     while(result.length<5){
                         result.push("off")
                     }
@@ -94,6 +125,7 @@
             },
             methods: {
                 chooseStar:function(index,$event){
+                    //判断是否是第一次选择
                     if(this.canChoose&&!this.hasChoosed){
                         this.selfScore=(this.max*(index+1)/5);
                         this.hasChoosed=true;
@@ -106,57 +138,56 @@
 
 </head>
 <body>
-<div class="wrapper" id="wrapper">
+<div class="container" id="app">
     <div v-for="(item,index) in list">
-        <stars-vue
-                :score.sync="item.score"
-                :can-Choose.sync="item.canChoose"
-                :max.sync="item.max"
+        <star-Rating
+                :score="item.score"
+                :can-Choose="item.canChoose"
+                :max="item.max"
+                :mode="item.mode"
                 v-on:change="afterClick"
-        ></stars-vue>
+        ></star-Rating>
     </div>
 
 </div>
 </body>
 <script>
     var list = new Vue({
-        el: '#wrapper',
+        el: '#app',
         data: {
             list:[
                 {
-                    score:40,
+                    score:2.1,
                     canChoose:true,
-                    max:100
+                    mode:"normal"
                 },
                 {
-                    score:40,
+                    score:3.5,
                     canChoose:true,
-                    max:100
+                    mode:"roundUp"
                 },
                 {
-                    score:40,
+                    score:2.1,
                     canChoose:true,
-                    max:100
+                    mode:"roundDown"
                 },
                 {
-                    score:40,
+                    score:2.2,
                     canChoose:true,
-                    max:100
+                    mode:"round"
                 },
                 {
-                    score:40,
+                    score:6,
                     canChoose:true,
-                    max:100
+                    mode:"normal"
                 },
                 {
-                    score:40,
-                    canChoose:true,
+                    score:75,
+                    canChoose:false,
+                    mode:"round",
                     max:100
+
                 },
-                {
-                    score:1.2,
-                    canChoose:false
-                }
             ]
         },
         methods:{
