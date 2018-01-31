@@ -35,6 +35,7 @@
                 :class="[item=='on'?'star-item-on':item=='half'?'star-item-half':'star-item-off']"
                 @click="chooseStar(index)"
                   class="star-item"
+                  @mouseover="starOver(index)"
             ></span>
 
         </div>
@@ -124,12 +125,17 @@
             watch: {
             },
             methods: {
-                chooseStar:function(index,$event){
+                chooseStar(index,$event){
                     //判断是否是第一次选择
                     if(this.canChoose&&!this.hasChoosed){
                         this.selfScore=(this.max*(index+1)/5);
                         this.hasChoosed=true;
                         this.$emit('change', index);
+                    }
+                },
+                starOver(index,$event){
+                    if(this.canChoose&&!this.hasChoosed){
+                        this.selfScore = index+1;
                     }
                 }
             }
